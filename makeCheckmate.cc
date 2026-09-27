@@ -1,5 +1,5 @@
 /**
- * ¡ÖµÍ¤á¤É¤¦¤Ö¤Ä¤·¤ç¤¦¤®¡×¤Î¶ÉÌÌ¤òºî¤ë
+ * ã€Œè©°ã‚ã©ã†ã¶ã¤ã—ã‚‡ã†ãã€ã®å±€é¢ã‚’ä½œã‚‹
  * 
  */
 #include "dobutsu.h"
@@ -28,7 +28,7 @@ int main()
   vChar winLossCheck(dSize,0);
   vChar winLossCheckCount(dSize,0);
   /**
-   * check¾õÂÖ¤ÇÉé¤±¤Î¤â¤Î¤òµá¤á¤ë
+   * checkçŠ¶æ…‹ã§è² ã‘ã®ã‚‚ã®ã‚’æ±‚ã‚ã‚‹
    */
   for(size_t i=0;i<dSize;i++){
     if(winLose.getWinLose(i)<0 && winLose.getWinLoseCount(i)!=0){
@@ -51,7 +51,7 @@ int main()
     }
   }
   /**
-   * check²ÄÇ½¤Ê¤â¤Î¤òµá¤á¤ë
+   * checkå¯èƒ½ãªã‚‚ã®ã‚’æ±‚ã‚ã‚‹
    */
   for(size_t i=0;i<dSize;i++){
     if(winLose.getWinLose(i)>0 && winLose.getWinLoseCount(i)!=0){

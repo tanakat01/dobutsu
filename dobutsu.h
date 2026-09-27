@@ -22,26 +22,26 @@ typedef vector<int> vInt;
 // typedef map<uint64,int> sVals;
 
 /**
- * ¥Õ¥¡¥¤¥ëÆşÎÏÅù¤Ç¥Õ¥©¡¼¥Ş¥Ã¥È°Û¾ï¤òÈ¯¸«¤·¤¿»ş¤Ëthrow¤¹¤ëÎã³°
+ * ãƒ•ã‚¡ã‚¤ãƒ«å…¥åŠ›ç­‰ã§ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆç•°å¸¸ã‚’ç™ºè¦‹ã—ãŸæ™‚ã«throwã™ã‚‹ä¾‹å¤–
  */
 struct FormatException{
 };
 
 /**
- * ¶ÉÌÌÅù¤ÇÉÔÀ°¹ç¤¬¸«¤Ä¤«¤Ã¤¿»ş¤Ëthrow¤¹¤ëÎã³°
+ * å±€é¢ç­‰ã§ä¸æ•´åˆãŒè¦‹ã¤ã‹ã£ãŸæ™‚ã«throwã™ã‚‹ä¾‹å¤–
  */
 struct InconsistentException{
 };
 
 /**
- * ¥×¥ì¥¤¥ä¡¼
- * °Ï¸ë¤Ë¤Ê¤é¤Ã¤ÆÀè¼êÈÖ¤òBLACK, ¸å¼êÈÖ¤òWHITE¤È¤¹¤ë¡¥
+ * ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼
+ * å›²ç¢ã«ãªã‚‰ã£ã¦å…ˆæ‰‹ç•ªã‚’BLACK, å¾Œæ‰‹ç•ªã‚’WHITEã¨ã™ã‚‹ï¼
  */
 enum Player{
   BLACK=1, WHITE=-1
 };
 /**
- * ¼êÈÖ¤ÎÈ¿Å¾
+ * æ‰‹ç•ªã®åè»¢
  */
 static inline Player alt(Player pl)
 {
@@ -49,8 +49,8 @@ static inline Player alt(Player pl)
 }
 static int makePtypeChar(char c0,char c1);
 /**
- * ¶ğ¤Î¼ïÎà¤Èplayer¤òÉ½¤¹À°¿ô¤ò´ÉÍı¤¹¤ë¤¿¤á¤Î¥¯¥é¥¹
- * ÂĞ±ş¤¹¤ë¥ª¥Ö¥¸¥§¥¯¥È¤Ï¤Ê¤¤
+ * é§’ã®ç¨®é¡ã¨playerã‚’è¡¨ã™æ•´æ•°ã‚’ç®¡ç†ã™ã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹
+ * å¯¾å¿œã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¯ãªã„
  */
 struct Ptype{
   enum {
@@ -62,19 +62,19 @@ struct Ptype{
     LION=5,
   };
   /**
-   * ptype¤¬Éé¤Î»ş¤ÏWHITE¤Î¶ğ¤òÉ½¤¹
+   * ptypeãŒè² ã®æ™‚ã¯WHITEã®é§’ã‚’è¡¨ã™
    */
   static int makePtype(Player p,int type){
     return p*type;
   }
   /**
-   * Ê¸»úÎó s ¤ÎindexÊ¸»úÌÜ¤«¤é¤Î3Ê¸»ú¤ò¸«¤Æptype¤òÊÖ¤¹
+   * æ–‡å­—åˆ— s ã®indexæ–‡å­—ç›®ã‹ã‚‰ã®3æ–‡å­—ã‚’è¦‹ã¦ptypeã‚’è¿”ã™
    */
   static int makePtype(string const& s,int index);
   /**
-   * 2Ê¸»ú¤Î¶ğ¥·¥ó¥Ü¥ë
+   * 2æ–‡å­—ã®é§’ã‚·ãƒ³ãƒœãƒ«
    * HI, ZO, KI, NI, LI
-   * ¤È¤ÎÂĞ±ş
+   * ã¨ã®å¯¾å¿œ
    */
   static const char *strs[];
   static string str(int type){
@@ -90,7 +90,7 @@ struct Ptype{
   }
 };
 /**
- * 2Ê¸»ú¤Îchar¤«¤é¶ğ¤Îtype¤òºî¤ë
+ * 2æ–‡å­—ã®charã‹ã‚‰é§’ã®typeã‚’ä½œã‚‹
  */
 static inline int makePtypeChar(char c0,char c1)
 {
@@ -102,7 +102,7 @@ static inline int makePtypeChar(char c0,char c1)
 }
 
 /**
- * Ê¸»úÎó s ¤ÎindexÊ¸»úÌÜ¤«¤é¤Î3Ê¸»ú¤ò¸«¤Æptype¤òÊÖ¤¹
+ * æ–‡å­—åˆ— s ã®indexæ–‡å­—ç›®ã‹ã‚‰ã®3æ–‡å­—ã‚’è¦‹ã¦ptypeã‚’è¿”ã™
  */
 inline int Ptype::makePtype(string const& s,int index){
   if(index+3>s.length()) throw FormatException();
@@ -122,22 +122,22 @@ inline int Ptype::makePtype(string const& s,int index){
 }
 
 /**
- * 8¶áËµ¤Î¥Ù¥¯¥È¥ë
+ * 8è¿‘å‚ã®ãƒ™ã‚¯ãƒˆãƒ«
  */
 extern const Point directions[8];
 /**
- * ¶ğ¤´¤È¤Ë¤É¤ÎÊı¸ş¤ËÆ°¤±¤ë¤«¤òµ­Ï¿¤·¤¿¤â¤Î
+ * é§’ã”ã¨ã«ã©ã®æ–¹å‘ã«å‹•ã‘ã‚‹ã‹ã‚’è¨˜éŒ²ã—ãŸã‚‚ã®
  */
 extern const int canMoves[5];
 
 /**
- * È×ÌÌ¤Îx,y¤«¤é1¼¡¸µ¤ÎPosition¤òºî¤ë
- * ¤³¤³¤Îx,y ¤Ï¾­´ıÎ®¤Ç
+ * ç›¤é¢ã®x,yã‹ã‚‰1æ¬¡å…ƒã®Positionã‚’ä½œã‚‹
+ * ã“ã“ã®x,y ã¯å°†æ£‹æµã§
  * (2,0) (1,0) (0,0)
  * (2,1) (1,1) (0,1)
  * (2,2) (1,2) (0,2)
  * (2,3) (1,3) (0,3)
- * ¤È¤Ê¤Ã¤Æ¤¤¤ë¤¬¤Ê¤¼¤«¤ÏÊ¹¤«¤Ê¤¤¤Ç
+ * ã¨ãªã£ã¦ã„ã‚‹ãŒãªãœã‹ã¯èã‹ãªã„ã§
  */
 static inline int makePosition(int x, int y)
 {
@@ -146,11 +146,11 @@ static inline int makePosition(int x, int y)
   return x*4+y;
 }
 /**
- * ¶ğÂæ¤òÉ½¤¹Position
+ * é§’å°ã‚’è¡¨ã™Position
  */
 extern const int STAND;
 /**
- * Position¤«¤éx¤ò¼è¤ê½Ğ¤¹
+ * Positionã‹ã‚‰xã‚’å–ã‚Šå‡ºã™
  */
 static inline int pos2X(int pos)
 {
@@ -158,7 +158,7 @@ static inline int pos2X(int pos)
   return pos/4;
 }
 /**
- * Position¤«¤éy¤ò¼è¤ê½Ğ¤¹
+ * Positionã‹ã‚‰yã‚’å–ã‚Šå‡ºã™
  */
 static inline int pos2Y(int pos)
 {
@@ -166,7 +166,7 @@ static inline int pos2Y(int pos)
   return pos%4;
 }
 /**
- * Position¤ò180ÅÙ²óÅ¾¤¹¤ë
+ * Positionã‚’180åº¦å›è»¢ã™ã‚‹
  * (2-x)*4+(3-y)=8+3-(x*4+y)=11-pos
  */
 static inline int rot180(int pos)
@@ -175,8 +175,8 @@ static inline int rot180(int pos)
   return 11-pos;
 }
 /**
- * Ê¸»ú2Ê¸»ú¤«¤éposition¤òºî¤ë
- * '0' '0' ¤ÏSTAND¤òÉ½¤¹¤³¤È¤Ë¤¹¤ë
+ * æ–‡å­—2æ–‡å­—ã‹ã‚‰positionã‚’ä½œã‚‹
+ * '0' '0' ã¯STANDã‚’è¡¨ã™ã“ã¨ã«ã™ã‚‹
  */
 static inline int makePosition(char c1,char c2)
 {
@@ -191,13 +191,13 @@ static inline int makePosition(char c1,char c2)
   throw FormatException();
 }
 /**
- * »Ø¤·¼ê¤òÉ½¤¹¥¯¥é¥¹
- * ¼êÈÖ¤âÆş¤ë¡¥
+ * æŒ‡ã—æ‰‹ã‚’è¡¨ã™ã‚¯ãƒ©ã‚¹
+ * æ‰‹ç•ªã‚‚å…¥ã‚‹ï¼
  */
 struct Move{
   // bit 0-7 to
   // bit 8-15 from if stand 0ff
-  // bit 16-19 ptype - move¸å¤Îptype
+  // bit 16-19 ptype - moveå¾Œã®ptype
   // bit 31 - if player is black 0 else 1
   int v;
   Move(string const& str);
@@ -230,24 +230,24 @@ typedef vector<Move> vMove;
 vMove readMoveFile(string const& fileName);
 ostream& operator<<(ostream& os,Move const& m);
 /**
- * ¶ÉÌÌ¤òÉ½¤¹¥¯¥é¥¹
+ * å±€é¢ã‚’è¡¨ã™ã‚¯ãƒ©ã‚¹
  */
 struct State{
   /**
-   * È×ÌÌ¤Î12¥Ş¥¹¤ËÆş¤ëptype
+   * ç›¤é¢ã®12ãƒã‚¹ã«å…¥ã‚‹ptype
    */
   char board[3*4];
   /**
-   * ¤½¤ì¤¾¤ì¤Î¥×¥ì¥¤¥ä¡¼¤Î¶ğÂæ¤Î¶ğ¤Î¸Ä¿ô
+   * ãã‚Œãã‚Œã®ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®é§’å°ã®é§’ã®å€‹æ•°
    * 2 * 3
    */
   int stands[6];
   /**
-   * ¼¡¤Î¼êÈÖ¤Î¥×¥ì¥¤¥ä¡¼(BLACK or WHITE)
+   * æ¬¡ã®æ‰‹ç•ªã®ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼(BLACK or WHITE)
    */
   int turn;
   /**
-   * ½é´üÇÛÃÖ¤òºî¤ë
+   * åˆæœŸé…ç½®ã‚’ä½œã‚‹
    */
   State(){
     for(int x=0;x<3;x++)
@@ -265,7 +265,7 @@ struct State{
     turn=BLACK;
   }
   /**
-   * pack¤·¤¿¾õÂÖ¤«¤éplayer¤ò»ØÄê¤·¤Æºî¤ë
+   * packã—ãŸçŠ¶æ…‹ã‹ã‚‰playerã‚’æŒ‡å®šã—ã¦ä½œã‚‹
    */
   State(uint64 p,Player pl=BLACK)
   {
@@ -273,15 +273,15 @@ struct State{
     else *this=makeBlackFromUint64(p).rotateChangeTurn();
   }
   /**
-   * CSAÉ÷¤ÎÉ½µ­¤«¤éºî¤ë
+   * CSAé¢¨ã®è¡¨è¨˜ã‹ã‚‰ä½œã‚‹
    */
   State(string const& s);
   /**
-   * pack¤·¤¿¾õÂÖ¤«¤é¹õÈÖ¤Çºî¤ë
-   * bit 59 - 48 : 48+2*j¥Ó¥Ã¥È¤«¤é¤Î2¥Ó¥Ã¥È¤Å¤Ä¤Ç stands[j]¤òÉ½¤¹
-   * bit 47 - 0  : 4*pos¥Ó¥Ã¥È¤«¤é¤Î4¥Ó¥Ã¥È¤º¤Ä¤Ç board[pos] ¤òÉ½¤¹
-   *             : ptype¤Î²¼°Ì4¥Ó¥Ã¥È¤Ê¤Î¤Çbit3¤¬set¤µ¤ì¤Æ¤¤¤ë»ş¤Ï¡¤
-   *             : WHITEÍÑ¤ËÊäÀµ
+   * packã—ãŸçŠ¶æ…‹ã‹ã‚‰é»’ç•ªã§ä½œã‚‹
+   * bit 59 - 48 : 48+2*jãƒ“ãƒƒãƒˆã‹ã‚‰ã®2ãƒ“ãƒƒãƒˆã¥ã¤ã§ stands[j]ã‚’è¡¨ã™
+   * bit 47 - 0  : 4*posãƒ“ãƒƒãƒˆã‹ã‚‰ã®4ãƒ“ãƒƒãƒˆãšã¤ã§ board[pos] ã‚’è¡¨ã™
+   *             : ptypeã®ä¸‹ä½4ãƒ“ãƒƒãƒˆãªã®ã§bit3ãŒsetã•ã‚Œã¦ã„ã‚‹æ™‚ã¯ï¼Œ
+   *             : WHITEç”¨ã«è£œæ­£
    */
   static State makeBlackFromUint64(uint64 p){
     State s;
@@ -300,7 +300,7 @@ struct State{
     return s;
   }
   /**
-   * È×ÌÌ¤ò180ÅÙ²óÅ¾¤·¤Æturn¤òÈ¿Å¾¤·¤¿State¤òºî¤ë
+   * ç›¤é¢ã‚’180åº¦å›è»¢ã—ã¦turnã‚’åè»¢ã—ãŸStateã‚’ä½œã‚‹
    */
   State rotateChangeTurn() const
   {
@@ -316,14 +316,14 @@ struct State{
     return ret;
   }
   /**
-   * turn¤òÈ¿Å¾
+   * turnã‚’åè»¢
    */
   void changeTurn()
   {
     turn = -turn;
   }
   /**
-   * º¸±¦¤òÈ¿Å¾¤·¤¿State¤òºî¤ë
+   * å·¦å³ã‚’åè»¢ã—ãŸStateã‚’ä½œã‚‹
    */
   State flip() const
   {
@@ -334,7 +334,7 @@ struct State{
     return ret;
   }
   /**
-   * ¹õÈÖ¤ÎÈ×ÌÌ¤ò64¥Ó¥Ã¥ÈÀ°¿ô¤ËÊÑ´¹
+   * é»’ç•ªã®ç›¤é¢ã‚’64ãƒ“ãƒƒãƒˆæ•´æ•°ã«å¤‰æ›
    */
   uint64 pack() const
   {
@@ -351,7 +351,7 @@ struct State{
     return ret;
   }
   /**
-   * ¹õÈÖ¤ËÀµµ¬²½¤·¤¿¾å¤Ç64¥Ó¥Ã¥ÈÀ°¿ô¤ËÊÑ´¹¤·¡¤flip¤·¤¿¤â¤Î¤È¾®¤µ¤¤Êı¤òÊÖ¤¹
+   * é»’ç•ªã«æ­£è¦åŒ–ã—ãŸä¸Šã§64ãƒ“ãƒƒãƒˆæ•´æ•°ã«å¤‰æ›ã—ï¼Œflipã—ãŸã‚‚ã®ã¨å°ã•ã„æ–¹ã‚’è¿”ã™
    */
   uint64 normalize() const{
     if(turn==BLACK){
@@ -367,7 +367,7 @@ struct State{
     }
   }
   /**
-   * »ØÄê¤µ¤ì¤¿Player¤Îlion¤òÁÜ¤¹
+   * æŒ‡å®šã•ã‚ŒãŸPlayerã®lionã‚’æœã™
    */
   Point lion(Player p) const{
     char pLion=Ptype::makePtype(p,Ptype::LION);
@@ -380,19 +380,19 @@ struct State{
     return Point(0,0);
   }
   /**
-   * Point p¤¬È×ÌÌ¤ÎÆâÉô¤«¤É¤¦¤«¤òÈ½Äê¤¹¤ë
+   * Point pãŒç›¤é¢ã®å†…éƒ¨ã‹ã©ã†ã‹ã‚’åˆ¤å®šã™ã‚‹
    */
   static bool isInside(Point p){
     return 0<=p.real() && p.real()<=2 && 0<=p.imag() && p.imag()<=3;
   }
   /**
-   * ¹õÈÖ¤Îptype¤¬dirÊı¸ş¤ËÆ°¤±¤ë¤«¤É¤¦¤«¤òÈ½Äê¤¹¤ë
+   * é»’ç•ªã®ptypeãŒdiræ–¹å‘ã«å‹•ã‘ã‚‹ã‹ã©ã†ã‹ã‚’åˆ¤å®šã™ã‚‹
    */
   static bool canMove(char ptype,int dir){
     return ((1<<dir)&canMoves[ptype-Ptype::BABY])!=0;
   }
   /**
-   * ¹õÈÖ¤ÎÈ×ÌÌ¤¬¼êÈÖ¤Î¾¡¤Á¤«¤É¤¦¤«¤òÈ½Äê¤¹¤ë
+   * é»’ç•ªã®ç›¤é¢ãŒæ‰‹ç•ªã®å‹ã¡ã‹ã©ã†ã‹ã‚’åˆ¤å®šã™ã‚‹
    */
   bool isWinByBlack() const{
     assert(turn==BLACK);
@@ -410,15 +410,15 @@ struct State{
     return false;
   }
   /**
-   * È×ÌÌ¤¬¼êÈÖ¤Î¾¡¤Á¤«¤É¤¦¤«¤òÈ½Äê¤¹¤ë
+   * ç›¤é¢ãŒæ‰‹ç•ªã®å‹ã¡ã‹ã©ã†ã‹ã‚’åˆ¤å®šã™ã‚‹
    */
   bool isWin() const{
     if(turn==BLACK) return isWinByBlack();
     return rotateChangeTurn().isWinByBlack();
   }
   /**
-   * ¹õÈÖ¤ÎÈ×ÌÌ¤¬¼êÈÖ¤ÎÉé¤±¤«¤É¤¦¤«¤òÈ½Äê¤¹¤ë
-   * isWin¤Ç¤Ê¤¤¤³¤È¤Ï¥Á¥§¥Ã¥¯ºÑ¤ß¤È¤¹¤ë
+   * é»’ç•ªã®ç›¤é¢ãŒæ‰‹ç•ªã®è² ã‘ã‹ã©ã†ã‹ã‚’åˆ¤å®šã™ã‚‹
+   * isWinã§ãªã„ã“ã¨ã¯ãƒã‚§ãƒƒã‚¯æ¸ˆã¿ã¨ã™ã‚‹
    */
   bool isLoseByBlack() const{
     assert(turn==BLACK);
@@ -428,15 +428,15 @@ struct State{
     return pLion.imag() == 3;
   }
   /**
-   * È×ÌÌ¤¬¼êÈÖ¤ÎÉé¤±¤«¤É¤¦¤«¤òÈ½Äê¤¹¤ë
-   * isWin¤Ç¤Ê¤¤¤³¤È¤Ï¥Á¥§¥Ã¥¯ºÑ¤ß¤È¤¹¤ë
+   * ç›¤é¢ãŒæ‰‹ç•ªã®è² ã‘ã‹ã©ã†ã‹ã‚’åˆ¤å®šã™ã‚‹
+   * isWinã§ãªã„ã“ã¨ã¯ãƒã‚§ãƒƒã‚¯æ¸ˆã¿ã¨ã™ã‚‹
    */
   bool isLose() const{
     if(turn==BLACK) return isLoseByBlack();
     return rotateChangeTurn().isLoseByBlack();
   }
   /**
-   * ¶ğ¤Î¿ô¤¬¤¢¤Ã¤Æ¤¤¤ë¤³¤È¤ò³ÎÇ§¤¹¤ë
+   * é§’ã®æ•°ãŒã‚ã£ã¦ã„ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹
    */
   bool isConsistent() const{
     vInt counts(6,0);
@@ -513,8 +513,8 @@ struct State{
   }
 #endif
   /**
-   * ¹õÈÖ¤Îstate¤Ç¹çË¡¼ê¤ò¤¹¤Ù¤Æºî¤ë
-   * isWin, isLose¤Ç¤Ï¸Æ¤Ğ¤Ê¤¤
+   * é»’ç•ªã®stateã§åˆæ³•æ‰‹ã‚’ã™ã¹ã¦ä½œã‚‹
+   * isWin, isLoseã§ã¯å‘¼ã°ãªã„
    */
   vMove nextMovesForBlack() const{
     assert(turn==BLACK);
@@ -546,8 +546,8 @@ struct State{
     return ret;
   }
   /**
-   * state¤Ç¹çË¡¼ê¤ò¤¹¤Ù¤Æºî¤ë
-   * isWin, isLose¤Ç¤Ï¸Æ¤Ğ¤Ê¤¤
+   * stateã§åˆæ³•æ‰‹ã‚’ã™ã¹ã¦ä½œã‚‹
+   * isWin, isLoseã§ã¯å‘¼ã°ãªã„
    */
   vMove nextMoves() const{
     if(turn==BLACK) return nextMovesForBlack();
@@ -561,9 +561,9 @@ struct State{
     }
   }
   /**
-   * move¤¬¤¢¤ëstate¤Çvalid¤«¤É¤¦¤«¤òÈ½Äê¤¹¤ë¡¥
-   * generate¤·¤Æ¤«¤é¤½¤Î¥á¥ó¥Ğ¡¼¤Ç¤¢¤ë¤³¤È¤ÇÈ½Äê¤¹¤ë¤È¤¤¤¦
-   * ÃÙ¤¤ÊıË¡
+   * moveãŒã‚ã‚‹stateã§validã‹ã©ã†ã‹ã‚’åˆ¤å®šã™ã‚‹ï¼
+   * generateã—ã¦ã‹ã‚‰ãã®ãƒ¡ãƒ³ãƒãƒ¼ã§ã‚ã‚‹ã“ã¨ã§åˆ¤å®šã™ã‚‹ã¨ã„ã†
+   * é…ã„æ–¹æ³•
    */
   bool isValidWithGenerate(Move const& move) const
   {
@@ -573,8 +573,8 @@ struct State{
     return false;
   }
   /**
-   * move¤¬state¤Çvalid¤«¤É¤¦¤«¤òÈ½Äê¤¹¤ë¡¥
-   * rule¤Ë¤è¤Ã¤Æ²ÄÇ½¤Ê¤³¤È¤òÁ°Äó¤Ë¤¹¤ë¡¡
+   * moveãŒstateã§validã‹ã©ã†ã‹ã‚’åˆ¤å®šã™ã‚‹ï¼
+   * ruleã«ã‚ˆã£ã¦å¯èƒ½ãªã“ã¨ã‚’å‰æã«ã™ã‚‹ã€€
    */
   bool isValid(Move const& move) const
   {
@@ -600,7 +600,7 @@ struct State{
     }
   }
   /**
-   * State¤Ëmove¤òapply¤·¤ÆÊÑ²½¤µ¤»¤ë
+   * Stateã«moveã‚’applyã—ã¦å¤‰åŒ–ã•ã›ã‚‹
    */
   void applyMove(Move const& move)
   {

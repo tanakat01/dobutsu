@@ -2,12 +2,12 @@
 #define _MOVE_H
 #include "dobutsu.h"
 /*
- * ¼êÈÖ¤ÏÆş¤é¤Ê¤¤
+ * æ‰‹ç•ªã¯å…¥ã‚‰ãªã„
  */
 struct Move{
   // bit 0-7 to - if promote set bit 7
   // bit 8-15 from if stand 0ff
-  // bit 16-19 ptype - ¸µ¤Î¶ğ¤Îptype
+  // bit 16-19 ptype - å…ƒã®é§’ã®ptype
   // bit 31 - if player is black 0 else 1
   int v;
   Move(string const& str);

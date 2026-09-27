@@ -198,7 +198,7 @@ public:
   }
   void testEqual() {
     {
-      // �ޤ��ϴ�ñ�ʥѥ�����
+      // まずは簡単なパターン
       State s(
 	" . +KI-ZO"
 	"+KI+ZO-LI"
@@ -218,7 +218,7 @@ public:
       CPPUNIT_ASSERT(s==s2);
     }
     {
-      // ������ΰ㤤��ǧ��
+      // 持ち駒の違いを認識
       State s1(
 	" . +KI-ZO"
 	"+KI+ZO-LI"
@@ -244,7 +244,7 @@ public:
       CPPUNIT_ASSERT(s1!=s3);
       CPPUNIT_ASSERT(s2!=s3);
     }
-    { // ���֤ΰ㤤��ǧ��
+    { // 手番の違いを認識
       State s1(
 	" . +KI-ZO"
 	"+KI+ZO-LI"

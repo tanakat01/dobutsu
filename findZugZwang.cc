@@ -1,5 +1,5 @@
 /**
- * ZugZwang╓н╤илл╓Раэ╓╧║╔
+ * ZugZwangЦ│╝Е╠─И²╒Ц┌▓Ф█°Ц│≥О╪▌
  */
 
 #include "dobutsu.h"

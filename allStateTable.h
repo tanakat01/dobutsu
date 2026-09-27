@@ -14,12 +14,12 @@ public:
   ~AllStateTable();
   size_t size() const{ return c_size; }
   /**
-   * v¤¬¸«¤Ä¤«¤ì¤Ð0°Ê¾å¤Î¥¤¥ó¥Ç¥Ã¥¯¥¹¤òÊÖ¤¹¡¥
-   * ¸«¤Ä¤«¤é¤Ê¤±¤ì¤Ð-1¤òÊÖ¤¹
+   * vãŒè¦‹ã¤ã‹ã‚Œã°0ä»¥ä¸Šã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’è¿”ã™ï¼Ž
+   * è¦‹ã¤ã‹ã‚‰ãªã‘ã‚Œã°-1ã‚’è¿”ã™
    */
   int find(uint64 v) const;
   /**
-   * read only ¤Îaccess¤Î¤ß¤ò¹Í¤¨¤ë¡¥
+   * read only ã®accessã®ã¿ã‚’è€ƒãˆã‚‹ï¼Ž
    */
   const uint64 operator[](size_t i) const { 
     if(contents.size()>0){

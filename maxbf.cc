@@ -1,5 +1,5 @@
 /**
- * Ê¬´ô¿ôºÇÂç¤Î¶ÉÌÌ
+ * åˆ†å²æ•°æœ€å¤§ã®å±€é¢
  */
 #include "dobutsu.h"
 #include "allStateTable.h"
